@@ -1,0 +1,129 @@
+{
+	"scopeName": "source.wod",
+	"name": "wod",
+    "fileTypes" : [
+        "wod"
+    ],
+	"patterns": [
+		{"include": "#comment"},
+		{"include": "#keyword"},
+		{"include": "#expression"},
+        {"include": "#string"},
+        {"include": "#db"},
+        {"include": "#dollar"}
+	],
+	"repository": {
+        "expression": {
+            "patterns": [
+                {"include": "#string"},
+                {"include": "#number"},
+                {"include": "#function"},
+                {"include": "#variable"}
+            ]
+        },
+		"keyword": {
+			"patterns": [{
+				"name": "keyword.control.wod",
+				"match": "\\b(if|else|loop|while|for|return|break|continue|import|apply)\\b"
+			},
+            {
+                "name": "storage.type.primitive.wod",
+                "match": "\\b(void|int|str|bool)\\b"
+            },
+            {
+                "name": "storage.type.asm.wod",
+                "match": "\\bcmd\\b"
+            },
+            {
+                "name": "storage.type.class",
+                "match": "\\bcdb\\b"
+            },
+            {
+                "name": "storage.modifiers.wod",
+                "match": "\\b(const|inline)\\b"
+            }
+        ]
+		},
+		"string": {
+            "patterns" : [
+                {
+                    "name": "interpolate.wod",
+                    "begin": "\".*?(?=\\$\\{)",
+                    "end": "\"",
+                    "captures": { "0": { "name": "string.wod" } },
+                    "patterns": [
+                        {
+                            "begin": "\\$\\{",
+                            "end": "\\}",
+                            "captures": {"0": {"name": "constant.wod"}},
+                            "patterns": [{
+                                "include": "#expression"
+                            }]
+                        },
+                        {
+                            "name": "string.wod",
+                            "match": "."
+                        }
+                    ]
+                },
+                {
+                    "name": "string.quoted.double.wod",
+                    "begin": "\"",
+                    "end": "\""
+                }
+            ]
+		},
+        "number": {
+			"patterns": [
+                {
+                    "name": "constant.numeric.wod",
+					"match": "\\b(0|[1-9][0-9]*|0x[0-9a-fA-F]+)\\b"
+				},
+				{
+                    "name": "invalid.illegal.constant.numeric",
+					"match": "\\b(0[0-9]+|0x)\\b"
+				}
+			]
+		},
+        "comment": {
+			"patterns": [
+				{
+                    "name": "comment.line.double-slash.wod",
+					"match": "//.*$"
+				}
+			]
+		},
+        "function": {
+			"patterns": [
+				{
+                    "name": "entity.name.function.wod",
+					"match": "\\b[^\\d\\W]\\w*\\b(?=\\s*\\()"
+				}
+			]
+		},
+        "variable": {
+			"patterns": [
+				{
+                    "name": "variable.wod",
+					"match": "(?<=\\b(int|str)\\b(\\[.*\\])?)\\s*\\b[^\\d\\W]\\w*\\b(?!\\s*\\()"
+				}
+			]
+		},
+        "db": {
+            "patterns": [
+                {
+                    "name": "entity.name.type.wod",
+					"match": "(?<=cdb)\\s*\\b[^\\d\\W]\\w*\\b(?!\\s*\\()"
+                }
+            ]
+        },
+        "dollar": {
+			"patterns": [
+				{
+                    "name": "invalid.wod",
+					"match": "\\$"
+				}
+			]
+		}
+	}
+}

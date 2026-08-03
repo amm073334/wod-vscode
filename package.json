@@ -1,0 +1,28 @@
+{
+  "name": "wod",
+  "displayName": "wod",
+  "description": "syntax highlighting for wod",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "wod",
+      "extensions": [".wod"],
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./wod_icon.png",
+        "dark": "./wod_icon.png"
+      }
+    }],
+    "grammars": [{
+      "language": "wod",
+      "scopeName": "source.wod",
+      "path": "./syntaxes/wod.json"
+    }]
+  }
+}
