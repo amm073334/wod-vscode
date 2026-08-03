@@ -3,6 +3,7 @@
   "displayName": "wod",
   "description": "syntax highlighting for wod",
   "version": "0.0.1",
+  "repository": "https://github.com/amm073334/wod-vscode",
   "engines": {
     "vscode": "^1.87.0"
   },
