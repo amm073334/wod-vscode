@@ -105,7 +105,7 @@
 			"patterns": [
 				{
                     "name": "variable.wod",
-					"match": "(?<=\\b(int|str)\\b(\\[.*\\])?)\\s*\\b[^\\d\\W]\\w*\\b(?!\\s*\\()"
+					"match": "(?<=\\b(int|str|bool)\\b(\\[.*\\])?)\\s*\\b[^\\d\\W]\\w*\\b(?!\\s*\\()"
 				}
 			]
 		},
