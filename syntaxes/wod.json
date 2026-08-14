@@ -36,7 +36,7 @@
             },
             {
                 "name": "storage.type.class",
-                "match": "\\bcdb\\b"
+                "match": "\\b(udb|cdb)\\b"
             },
             {
                 "name": "storage.modifiers.wod",
@@ -113,7 +113,7 @@
             "patterns": [
                 {
                     "name": "entity.name.type.wod",
-					"match": "(?<=cdb)\\s*\\b[^\\d\\W]\\w*\\b(?!\\s*\\()"
+					"match": "(?<=(udb|cdb))\\s*\\b[^\\d\\W]\\w*\\b(?!\\s*\\()"
                 }
             ]
         },
