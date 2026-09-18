@@ -36,11 +36,15 @@
             },
             {
                 "name": "storage.type.class",
-                "match": "\\b(udb|cdb)\\b"
+                "match": "\\b(udbt|cdbt)\\b"
             },
             {
                 "name": "storage.modifiers.wod",
-                "match": "\\b(const|inline)\\b"
+                "match": "\\b(const)\\b"
+            },
+            {
+                "name": "keyword.other.wod",
+                "match": "\\b(cev|default|dbdata|def|exaddr)\\b"
             }
         ]
 		},
@@ -113,7 +117,7 @@
             "patterns": [
                 {
                     "name": "entity.name.type.wod",
-					"match": "(?<=(udb|cdb))\\s*\\b[^\\d\\W]\\w*\\b(?!\\s*\\()"
+					"match": "(?<=(udbt|cdbt|dbdata))\\s*\\b[^\\d\\W]\\w*\\b(?!\\s*\\()"
                 }
             ]
         },
